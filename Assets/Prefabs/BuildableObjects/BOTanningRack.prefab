@@ -1,0 +1,182 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!65 &1225199313240985597
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316807529888545980}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.36, y: 6.54, z: 3.43}
+  m_Center: {x: 0.016846893, y: 3.0426738, z: -1.0953451}
+--- !u!114 &1193331729364692981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316807529888545980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92b41f169f39daa40947e17bae5d9a20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Tanning Rack
+  info: Literally Nothing Yet. Build for AESTHETIC.
+  prefab: {fileID: 2869392211207025991}
+  resources:
+  - type: 0
+    cost: 5
+  dimensions: {x: 1, y: 1, z: 0}
+  sprite: {fileID: 2800000, guid: b369b2193bb985a41b5eda3233460773, type: 3}
+  ID: -1
+--- !u!1 &2869392211207025991
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2499139771543885636}
+  m_Layer: 0
+  m_Name: BOTanningRack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2499139771543885636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2869392211207025991}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1316807529888964764}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &9033483753094387270
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2499139771543885636}
+    m_Modifications:
+    - target: {fileID: 1654967182080523168, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0137f6bd46d11cb4bbc2ad6e7e254678, type: 2}
+    - target: {fileID: 1654967182080523168, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0137f6bd46d11cb4bbc2ad6e7e254678, type: 2}
+    - target: {fileID: 1654967182080523170, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0137f6bd46d11cb4bbc2ad6e7e254678, type: 2}
+    - target: {fileID: 1654967182080523170, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0137f6bd46d11cb4bbc2ad6e7e254678, type: 2}
+    - target: {fileID: 1654967182080523172, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0137f6bd46d11cb4bbc2ad6e7e254678, type: 2}
+    - target: {fileID: 1654967182080523172, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0137f6bd46d11cb4bbc2ad6e7e254678, type: 2}
+    - target: {fileID: 1654967182080523174, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0137f6bd46d11cb4bbc2ad6e7e254678, type: 2}
+    - target: {fileID: 1654967182080523174, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0137f6bd46d11cb4bbc2ad6e7e254678, type: 2}
+    - target: {fileID: 1654967182096690658, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1654967182096690658, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1654967182096690658, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006094898711655482, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 06542c782caa48e42ba37c9a23ba334f, type: 2}
+    - target: {fileID: 8006094898713556698, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006094898713556698, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006094898713556698, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006094898713556698, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006094898713556698, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006094898713556698, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006094898713556698, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006094898713556698, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006094898713556698, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006094898713556698, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006094898713556698, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006094898713651962, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+      propertyPath: m_Name
+      value: TanningRack
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+--- !u!1 &1316807529888545980 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8006094898713651962, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+  m_PrefabInstance: {fileID: 9033483753094387270}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1316807529888964764 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8006094898713556698, guid: 8e3c3c97fa18f234cbdd4057c3fd7e4f, type: 3}
+  m_PrefabInstance: {fileID: 9033483753094387270}
+  m_PrefabAsset: {fileID: 0}
