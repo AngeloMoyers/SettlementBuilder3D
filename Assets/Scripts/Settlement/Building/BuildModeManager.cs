@@ -126,7 +126,19 @@ public class BuildModeManager : MonoBehaviour
             }
         }
         //If no other object is in the way
-        Vector3Int dims = m_visual.GetComponentInChildren<BuildableObject>().dimensions;
+
+        //List<WorldTile> tiles = m_visual.GetComponentInChildren<BuildableObject>().GetOverlappingTiles(m_tileManager);
+        //foreach (var t in tiles)
+        //{
+        //    if (t.occupier != null)
+        //    {
+        //        MessagePrinter.DisplayMessage("Another object is obstructing building here", Color.red);
+        //        return false;
+        //    }
+        //}
+
+
+        Vector3Int dims = m_visual.GetComponentInChildren<BuildableObject>().dimensions; //TODO change this: Makes checking for rotation complicated, maybe just use collider
         Vector3 startPos = m_visual.position;
         //check tiles right
         for (int i = dims.y - 1; i >= 0; i--)

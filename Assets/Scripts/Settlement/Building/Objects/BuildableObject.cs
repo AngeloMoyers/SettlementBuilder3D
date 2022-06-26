@@ -116,4 +116,35 @@ public class BuildableObject : MonoBehaviour
             t.RemoveOccupier();
         }
     }
+
+    public virtual List<WorldTile> GetOverlappingTiles(TileManager tileMan)
+    {
+        List<WorldTile> overlappingTiles = new List<WorldTile>();
+
+        BoxCollider b = GetComponent<BoxCollider>();
+        Bounds bounds = b.bounds;
+        float width = bounds.size.x;
+        float height = bounds.size.z;
+
+        Vector3 topRight = bounds.center, topLeft = bounds.center, bottomRight = bounds.center, bottomLeft = bounds.center;
+
+        overlappingTiles.Add(tileMan.GetWorldTile(new Vector3(b.size.x + b.center.x, -b.size.y + b.center.y, b.size.z + b.center.z) * 0.5f));
+        overlappingTiles.Add(tileMan.GetWorldTile(new Vector3(-b.size.x + b.center.x, -b.size.y + b.center.y, b.size.z + b.center.z) * 0.5f));
+        overlappingTiles.Add(tileMan.GetWorldTile(new Vector3(-b.size.x + b.center.x, -b.size.y + b.center.y, -b.size.z + b.center.z) * 0.5f));
+        overlappingTiles.Add(tileMan.GetWorldTile(new Vector3(b.size.x + b.center.x, -b.size.y + b.center.y, -b.size.z + b.center.z) * 0.5f));
+
+        topRight.x += width / 2;
+        topRight.z += height / 2;
+
+        topLeft.x -= width / 2;
+        topLeft.z += height / 2;
+
+        bottomRight.x += width / 2;
+        bottomRight.z -= height / 2;
+
+        bottomLeft.x -= width / 2;
+        bottomLeft.z -= height / 2;
+
+        return overlappingTiles;
+    }
 }
