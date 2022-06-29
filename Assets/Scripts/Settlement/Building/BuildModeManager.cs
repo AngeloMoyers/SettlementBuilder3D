@@ -60,6 +60,7 @@ public class BuildModeManager : MonoBehaviour
         UpdateGhostPosition();
     }
 
+    #region ObjectControls
     public void BuildObject(Vector3Int pos)
     {
         if (m_activeObject == null)
@@ -74,7 +75,13 @@ public class BuildModeManager : MonoBehaviour
             {
                 ChargeBuildCost(r.type, r.cost);
             }
-            GameObject spawnedObj = Instantiate(m_activeObject, new Vector3(pos.x, 0, pos.y), Quaternion.identity, m_BOContainer.transform);
+
+            //Instantiate at rotation
+            var dims = m_visual.GetComponentInChildren<BuildableObject>().dimensions;
+            //if dimensions are even, spawn at edge of tile, else spawn in center
+            Vector3 spawnLocation = new Vector3(dims.x % 2 == 0 ? pos.x : m_groundTilemap.GetCellCenterWorld(pos).x, 0, dims.y % 2 == 0 ? pos.y : m_groundTilemap.GetCellCenterWorld(pos).z);
+
+            GameObject spawnedObj = Instantiate(m_activeObject, spawnLocation, m_visual.transform.rotation, m_BOContainer.transform);
             BuildableObject spawnedBO = spawnedObj.GetComponentInChildren<BuildableObject>();
             spawnedBO.Build(m_tileManager, m_groundTilemap);
         }
@@ -105,6 +112,23 @@ public class BuildModeManager : MonoBehaviour
         }
     }
 
+    public void RotateObject()
+    {
+        if (m_visual == null) return;
+
+        Quaternion curRot = m_visual.transform.rotation;
+        m_visual.transform.rotation = Quaternion.Euler(curRot.eulerAngles.x, curRot.eulerAngles.y + 90f, curRot.eulerAngles.z);
+
+        //swamp dimension on rotate
+        var dims = m_visual.GetComponentInChildren<BuildableObject>().dimensions;
+        m_visual.GetComponentInChildren<BuildableObject>().dimensions = new Vector3Int(dims.y, dims.x, dims.z);
+
+        var pos = Vector3Int.FloorToInt(m_visual.transform.position);
+        Vector3Int swappedPos = new Vector3Int(pos.x, pos.z, pos.y);
+        HoverCurrentTile(swappedPos);
+    }
+
+    #endregion
     private void ChargeBuildCost(ResourceType type, int cost)
     {
         m_settlementManager.ChargeResource(type, cost);
@@ -127,33 +151,15 @@ public class BuildModeManager : MonoBehaviour
         }
         //If no other object is in the way
 
-        //List<WorldTile> tiles = m_visual.GetComponentInChildren<BuildableObject>().GetOverlappingTiles(m_tileManager);
-        //foreach (var t in tiles)
-        //{
-        //    if (t.occupier != null)
-        //    {
-        //        MessagePrinter.DisplayMessage("Another object is obstructing building here", Color.red);
-        //        return false;
-        //    }
-        //}
-
-
-        Vector3Int dims = m_visual.GetComponentInChildren<BuildableObject>().dimensions; //TODO change this: Makes checking for rotation complicated, maybe just use collider
-        Vector3 startPos = m_visual.position;
-        //check tiles right
-        for (int i = dims.y - 1; i >= 0; i--)
+        List<WorldTile> tiles = m_visual.GetComponentInChildren<BuildableObject>().GetOverlappingTiles(m_tileManager);
+        foreach (var t in tiles)
         {
-            for (int j = 0; j < dims.x; j++)
+            if (t.occupier != null)
             {
-                var currentOffset = new Vector3(j, 0, -i);
-                if (m_tileManager.GetWorldTile(startPos + currentOffset).occupier != null)
-                {
-                    MessagePrinter.DisplayMessage("Another object is obstructing building here", Color.red);
-                    return false;
-                }
+                MessagePrinter.DisplayMessage("Another object is obstructing building here", Color.red);
+                return false;
             }
         }
-
         return true;
     }
 
@@ -171,7 +177,19 @@ public class BuildModeManager : MonoBehaviour
 
     public void HoverCurrentTile(Vector3Int pos)
     {
-        m_ghostTargetPos = new Vector3(pos.x, 0, pos.y);
+        if (m_visual == null) return;
+        var visBO = m_visual.GetComponentInChildren<BuildableObject>();
+        Vector3Int dims;
+        if (visBO != null)
+        {
+            dims = m_visual.GetComponentInChildren<BuildableObject>().dimensions;
+        }
+        else return;
+
+        Vector3 spawnLocation = new Vector3(dims.x % 2 == 0 ? pos.x : m_groundTilemap.GetCellCenterWorld(pos).x, 0, dims.y % 2 == 0 ? pos.y : m_groundTilemap.GetCellCenterWorld(pos).z);
+
+        m_ghostTargetPos = spawnLocation; //TODO, set up prefabs and code to spawn at center of tile
+        //use dims to test, if %2, top of tile, else, center
     }
 
     private void DestroyGhost()

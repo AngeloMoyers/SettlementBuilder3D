@@ -73,6 +73,10 @@ public class BuildInput : InputMode
         {
             m_inputManager.SetInputMode(InputModeType.Settlement);
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            m_buildModeManager.RotateObject();
+        }
     }
 
     private void HighlightMouseOvertile()

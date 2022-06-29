@@ -128,11 +128,6 @@ public class BuildableObject : MonoBehaviour
 
         Vector3 topRight = bounds.center, topLeft = bounds.center, bottomRight = bounds.center, bottomLeft = bounds.center;
 
-        overlappingTiles.Add(tileMan.GetWorldTile(new Vector3(b.size.x + b.center.x, -b.size.y + b.center.y, b.size.z + b.center.z) * 0.5f));
-        overlappingTiles.Add(tileMan.GetWorldTile(new Vector3(-b.size.x + b.center.x, -b.size.y + b.center.y, b.size.z + b.center.z) * 0.5f));
-        overlappingTiles.Add(tileMan.GetWorldTile(new Vector3(-b.size.x + b.center.x, -b.size.y + b.center.y, -b.size.z + b.center.z) * 0.5f));
-        overlappingTiles.Add(tileMan.GetWorldTile(new Vector3(b.size.x + b.center.x, -b.size.y + b.center.y, -b.size.z + b.center.z) * 0.5f));
-
         topRight.x += width / 2;
         topRight.z += height / 2;
 
@@ -144,6 +139,15 @@ public class BuildableObject : MonoBehaviour
 
         bottomLeft.x -= width / 2;
         bottomLeft.z -= height / 2;
+
+        if (!overlappingTiles.Contains(tileMan.GetWorldTile(topLeft)))
+            overlappingTiles.Add(tileMan.GetWorldTile(topLeft));
+        if (!overlappingTiles.Contains(tileMan.GetWorldTile(topRight)))
+            overlappingTiles.Add(tileMan.GetWorldTile(topRight));
+        if (!overlappingTiles.Contains(tileMan.GetWorldTile(bottomLeft)))
+            overlappingTiles.Add(tileMan.GetWorldTile(bottomLeft));
+        if (!overlappingTiles.Contains(tileMan.GetWorldTile(bottomRight)))
+            overlappingTiles.Add(tileMan.GetWorldTile(bottomRight));
 
         return overlappingTiles;
     }
